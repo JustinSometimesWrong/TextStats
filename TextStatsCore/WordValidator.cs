@@ -1,4 +1,4 @@
-﻿namespace TextStatsCore;
+﻿namespace TextStats.Core;
 public class Node
 {
     public char Character { get; private set; }

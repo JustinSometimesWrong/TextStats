@@ -1,5 +1,5 @@
 ﻿
-using TextStatsCore;
+using TextStats.Core;
 
 internal class Program
 {
