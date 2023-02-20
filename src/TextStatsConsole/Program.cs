@@ -6,10 +6,18 @@ internal class Program
     static void Main(string[] args)
     {
 
-        var validator = new WordValidator();
+        var library = new WordLibrary();
         var input = "this is the list of valid words oh thin friend of mine!";
 
-        validator.Setup(input.Split(" ").ToList());
+        foreach(var item in input.Split(' '))
+        {
+            library.AddWord(item);
+        }
+
+            
+        var validator = new WordValidator(library);
+ 
+
 
         Console.WriteLine(validator.IsValid("the"));
         Console.WriteLine(validator.IsValid("this"));

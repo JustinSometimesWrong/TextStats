@@ -1,10 +1,10 @@
 namespace TextStats.Core;
 
-public class WordValidator2
+public class WordValidator
 {
     private IWordLibrary wordLibrary;
 
-    public WordValidator2(IWordLibrary wordLibrary)
+    public WordValidator(IWordLibrary wordLibrary)
    {
         this.wordLibrary = wordLibrary;
    }
