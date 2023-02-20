@@ -1,5 +1,5 @@
 namespace Tests;
-using TextStatsCore;
+using TextStats.Core;
 
 [TestClass]
 public class WordValidatorTests
