@@ -7,7 +7,9 @@ internal class Program
     {
         
         var library = new WordLibrary();
-        library.Build(FileUtility.ParseFileByLine(@"C:\Users\Justi\Projects\TextStats\TextStats\engmix.txt"));
+        // var filePath = Path.Combine(Environment.CurrentDirectory, "engmix.txt");
+        string[] wordList = {"this", "that" , "the", "other", "thing", "Thing"};
+        library.Build(wordList);
 
         var autoComplete = new AutoComplete(library);
         Console.WriteLine("Type to suggest a word");

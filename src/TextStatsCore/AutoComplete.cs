@@ -9,13 +9,13 @@ public class AutoComplete
         this.wordLibrary = wordLibrary;
     }
 
-    public string SuggestWord(string intput)
+    public string SuggestWord(string inputString)
     {
         var rootNode = this.wordLibrary.GetWordTrie();
 
 
 
-        return "";
+        return GetSuggestion(rootNode, inputString, string.Empty);
     }
 
     public string NextSuggestedWord()
@@ -33,46 +33,32 @@ public class AutoComplete
         this.wordLibrary.AddWord(word);
     }
 
-    private static string GetSuggestion(CharacterNode node, string inputString, string suggestion)
+    private static string GetSuggestion(CharacterNode currentNode, string inputString, string suggestion)
     {        
         var numberOfChildNodes = currentNode.NextLetters.Count;
-        var remainingLetters = text.Length;
+        var remainingLetters = inputString.Length;
         if(remainingLetters == 0)
         {
             if(numberOfChildNodes == 0 || currentNode.IsEndOfWordCharacter)            
             {
                 return suggestion;
             }
-
-            return false;
-        }
-
-
-
-        var firstLetter = text.First();
-
-        if(firstLetter == '.')
-        {
-            foreach(var childNode in currentNode.NextLetters.Values)
+            else
             {
-                var substring = text.Substring(1); 
-                if(IsTextValid(childNode, substring))
-                {
-                    return true;
-                }
+                var firstChild = currentNode.NextLetters.First(); // alternatively find the child with the shortest depth
+                return GetSuggestion(firstChild.Value, inputString, suggestion + firstChild.Key);
             }
-
-            return false;
         }
 
+        var firstLetter = inputString.First();
         CharacterNode node;
-        if (!currentNode.NextLetters.TryGetValue(firstLetter, out node))
+        var remainingInput = inputString.Substring(1);
+        if ( !currentNode.NextLetters.TryGetValue(firstLetter, out node))
         {
-            return false;
+            // no matches in Trie so return the initial input
+            return suggestion + inputString;
         }   
 
-        return IsTextValid(node, text.Substring(1));
+        return GetSuggestion(node, remainingInput, suggestion + node.Character);
     }
-
-
 }
