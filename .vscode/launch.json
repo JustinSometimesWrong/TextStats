@@ -9,16 +9,11 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/TextStatsConsole/bin/Debug/net7.0/TextStatsConsole.dll",
+            "program": "${workspaceFolder}/bin/Debug/net6.0/TextStatsConsole",
             "args": [],
-            "cwd": "${workspaceFolder}/TextStatsConsole",
-            "console": "internalConsole",
-            "stopAtEntry": false
-        },
-        {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach"
-        }
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        }, 
     ]
 }
