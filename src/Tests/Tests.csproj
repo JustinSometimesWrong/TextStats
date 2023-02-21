@@ -17,6 +17,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TextStatsCore\TextStatsCore.csproj" />
+    <None Update=".\TestInputs\FileParseByLine.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update=".\TestInputs\FileParseByWord.txt" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
