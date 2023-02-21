@@ -9,7 +9,7 @@
             "name": ".NET Core Launch (console)",
             "type": "coreclr",
             "request": "launch",
-            // "preLaunchTask": "build",
+            "preLaunchTask": "build",
             "program": "${workspaceFolder}/src/TextStatsConsole/bin/Debug/net6.0/TextStatsConsole.dll",
             "args": [],
             "cwd": "${workspaceFolder}",

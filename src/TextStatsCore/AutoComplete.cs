@@ -11,11 +11,12 @@ public class AutoComplete
 
     public string SuggestWord(string inputString)
     {
+        var normalizedInputString = inputString.ToLowerInvariant();
         var rootNode = this.wordLibrary.GetWordTrie();
 
 
 
-        return GetSuggestion(rootNode, inputString, string.Empty);
+        return GetSuggestion(rootNode, normalizedInputString, string.Empty);
     }
 
     public string NextSuggestedWord()
