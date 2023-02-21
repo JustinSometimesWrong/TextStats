@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -17,6 +17,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TextStatsCore\TextStatsCore.csproj" />
+    <None Update=".\TestInputs\FileParseByLine.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Update=".\TestInputs\FileParseByWord.txt" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
